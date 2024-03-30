@@ -22,14 +22,40 @@
       crossorigin=""
     ></script>
     <script src="script/map.js"></script>
+    <script src="script/geo.js"></script>
 
     <title>Frontend Mentor | IP Address Tracker</title>
   </head>
   <body>
-    IP Address Tracker Search for any IP address or domain IP Address Location
-    Timezone UTC
+    <h1>IP Address Tracker</h1>
+    <form>
+      <input
+        type="text"
+        placeholder="Search for any IP address or domain"
+        class="userInput"
+      />
+      <input type="submit" class="userSubmit" />
+    </form>
+    <div class="resultTable">
+      <div>
+        <div>IP ADDRESS</div>
+        <p class="ipResult"></p>
+      </div>
+      <div>
+        <div>LOCATION</div>
+        <p class="locationResult"></p>
+      </div>
+      <div>
+        <div>TIMEZONE</div>
+        <p class="timezoneResult"></p>
+      </div>
+      <div>
+        <div>ISP</div>
+        <p class="ispResult"></p>
+      </div>
+    </div>
+
     <div id="map" style="height: 400px"></div>
-    ISP
 
     <div class="attribution">
       Challenge by

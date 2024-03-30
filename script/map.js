@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var map = L.map("map").locate({
+  const map = L.map("map").locate({
     setView: true,
     maxZoom: 16,
   });
