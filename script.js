@@ -1,24 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = "at_ZYyq7XWNdbutrydrjzs6dAowsno34";
   const form = document.querySelector("form");
-  const userInput = document.querySelector(".userInput");
-  const ipResult = document.querySelector(".ipResult");
-  const locationResult = document.querySelector(".locationResult");
-  const timezoneResult = document.querySelector(".timezoneResult");
-  const ispResult = document.querySelector(".ispResult");
+  const userInput = document.querySelector(".user-input");
+  const resultTable = document.querySelector(".result-table");
+  const ipResult = document.querySelector(".ip-result");
+  const locationResult = document.querySelector(".location-result");
+  const timezoneResult = document.querySelector(".timezone-result");
+  const ispResult = document.querySelector(".isp-result");
   const apiCredits = `https://geo.ipify.org/service/account-balance?apiKey=${apiKey}`;
   var lat;
   var lng;
 
-  const map = L.map("map").locate({
+  const map = L.map("map", { zoomControl: false }).locate({
     setView: true,
     maxZoom: 16,
   });
 
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
   map.on("locationfound", (e) => {
@@ -31,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const inputValue = userInput.value;
     getResponse(inputValue);
   });
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       locationResult.innerHTML = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
       timezoneResult.innerHTML = data.location.timezone;
       ispResult.innerHTML = data.isp;
+      resultTable.style.display = "flex";
       lat = data.location.lat;
       lng = data.location.lng;
       changeLocation(lat, lng);

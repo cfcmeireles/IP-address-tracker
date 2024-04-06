@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -26,34 +32,36 @@
     <title>Frontend Mentor | IP Address Tracker</title>
   </head>
   <body>
-    <h1>IP Address Tracker</h1>
-    <form>
-      <input
-        type="text"
-        placeholder="Search for any IP address or domain"
-        class="userInput"
-      />
-      <input type="submit" class="userSubmit" />
-    </form>
-    <div class="resultTable">
-      <div>
-        <div>IP ADDRESS</div>
-        <p class="ipResult"></p>
-      </div>
-      <div>
-        <div>LOCATION</div>
-        <p class="locationResult"></p>
-      </div>
-      <div>
-        <div>TIMEZONE</div>
-        <p class="timezoneResult"></p>
-      </div>
-      <div>
-        <div>ISP</div>
-        <p class="ispResult"></p>
+    <div id="ip-tracker-app">
+      <img src="images/pattern-bg-mobile.png" class="mobile-bg" />
+      <h1>IP Address Tracker</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Search for any IP address or domain"
+          class="user-input"
+        />
+        <input type="submit" class="user-submit" value="" />
+      </form>
+      <div class="result-table">
+        <div>
+          <div class="result-title">IP ADDRESS</div>
+          <div class="ip-result"></div>
+        </div>
+        <div>
+          <div class="result-title">LOCATION</div>
+          <div class="location-result"></div>
+        </div>
+        <div>
+          <div class="result-title">TIMEZONE</div>
+          <div class="timezone-result"></div>
+        </div>
+        <div>
+          <div class="result-title">ISP</div>
+          <div class="isp-result"></div>
+        </div>
       </div>
     </div>
-
     <div id="map" style="height: 400px"></div>
 
     <div class="attribution">
