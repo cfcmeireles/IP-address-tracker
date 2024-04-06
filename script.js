@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = "at_ZYyq7XWNdbutrydrjzs6dAowsno34";
   const form = document.querySelector("form");
+  const ipTrackerDiv = document.querySelector("#ip-tracker-app");
   const userInput = document.querySelector(".user-input");
   const resultTable = document.querySelector(".result-table");
   const ipResult = document.querySelector(".ip-result");
@@ -16,12 +17,19 @@ document.addEventListener("DOMContentLoaded", function () {
     maxZoom: 16,
   });
 
+  const icon = L.icon({
+    iconUrl: "images/icon-location.svg",
+  });
+
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
   }).addTo(map);
 
   map.on("locationfound", (e) => {
-    L.marker(e.latlng).addTo(map);
+    L.marker(e.latlng, { icon: icon })
+      .addTo(map)
+      .bindPopup("You are here")
+      .openPopup();
   });
 
   map.on("locationerror", (e) => {
@@ -47,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       timezoneResult.innerHTML = data.location.timezone;
       ispResult.innerHTML = data.isp;
       resultTable.style.display = "flex";
+      ipTrackerDiv.style.justifyContent = "flex-start";
       lat = data.location.lat;
       lng = data.location.lng;
       changeLocation(lat, lng);
@@ -57,6 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function changeLocation(lat, lng) {
     map.setView([lat, lng]);
-    L.marker([lat, lng]).addTo(map);
+    L.marker([lat, lng], { icon: icon }).addTo(map);
   }
 });
