@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       timezoneResult.innerHTML = data.location.timezone;
       ispResult.innerHTML = data.isp;
       resultTable.style.display = "flex";
-      ipTrackerDiv.style.justifyContent = "flex-start";
+      // ipTrackerDiv.style.justifyContent = "flex-start";
       lat = data.location.lat;
       lng = data.location.lng;
       changeLocation(lat, lng);

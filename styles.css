@@ -6,7 +6,7 @@ body {
 
 #map {
   height: 90vh !important;
-  z-index: -1;
+  z-index: 1;
 }
 
 .attribution {
@@ -26,12 +26,20 @@ form {
 
 form input {
   font-size: 12px;
-  width: 235px;
   height: 50px;
+  width: 235px;
   border: none;
   padding-left: 20px;
   color: hsl(0, 0%, 17%);
   font-weight: 700;
+}
+
+@media only screen and (min-width: 1440px) {
+  form input {
+    width: 400px;
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
 
 .result-table {
@@ -51,8 +59,32 @@ form input {
   font-weight: bold;
   font-size: 11px;
   padding: 20px;
-  z-index: 99;
+  z-index: 3;
   margin-top: 30px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .result-table {
+    width: 900px;
+    height: 100px;
+    flex-direction: row;
+    margin-top: 50px;
+    font-size: 12px;
+    align-items: center;
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .location:after,
+  .timezone:after,
+  .isp:after {
+    content: "";
+    height: 50px;
+    width: 0.2px;
+    position: absolute;
+    top: 50px;
+    background-color: hsl(0, 0%, 17%);
+  }
 }
 .result-title {
   margin-bottom: 5px;
@@ -66,9 +98,35 @@ form input {
   font-size: 18px;
 }
 
-.mobile-bg {
-  z-index: 1;
+@media only screen and (min-width: 1440px) {
+  .ip-result,
+  .location-result,
+  .timezone-result,
+  .isp-result {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+.app-bg {
+  content: url("/images/pattern-bg-mobile.png");
+  z-index: 2;
   position: absolute;
+  height: 300px;
+  background-repeat: repeat;
+}
+
+@media only screen and (min-width: 400px) {
+  .app-bg {
+    content: url("/images/pattern-bg-desktop.png");
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .app-bg {
+    content: url("/images/pattern-bg-desktop.png");
+    width: 100vw;
+  }
 }
 
 h1 {
