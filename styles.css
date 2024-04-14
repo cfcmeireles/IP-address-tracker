@@ -21,6 +21,7 @@ form {
   display: flex;
   flex-direction: row;
   z-index: 2;
+  touch-action: none;
 }
 
 form input {
@@ -59,6 +60,7 @@ form input {
   padding: 20px;
   z-index: 3;
   margin-top: 30px;
+  touch-action: none;
 }
 
 .result-table div {
@@ -160,6 +162,7 @@ h1 {
   margin-top: 30px;
   margin-bottom: 30px;
   letter-spacing: 1px;
+  touch-action: none;
 }
 
 @media only screen and (max-width: 250px) {
