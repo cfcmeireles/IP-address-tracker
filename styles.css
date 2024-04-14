@@ -135,12 +135,7 @@ form input {
   position: absolute;
   height: 300px;
   background-repeat: repeat;
-}
-
-@media (orientation: landscape) {
-  .app-bg {
-    pointer-events: none;
-  }
+  touch-action: none;
 }
 
 @media only screen and (min-width: 400px) {
