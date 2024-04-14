@@ -32,6 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
     getResponse(inputValue);
   });
 
+  function changeDOM(data) {
+    ipResult.innerHTML = data.ip;
+    locationResult.innerHTML = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
+    let timeZone = moment()
+      .utcOffset(data.location.timezone / 60)
+      .format("z");
+    timezoneResult.innerHTML = `${timeZone} ${data.location.timezone}`;
+    ispResult.innerHTML = data.isp;
+    lat = data.location.lat;
+    lng = data.location.lng;
+  }
+
   async function getResponse(inputValue) {
     const apiUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${inputValue}`;
     try {
@@ -39,15 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
       });
       const data = await response.json();
-      ipResult.innerHTML = data.ip;
-      locationResult.innerHTML = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
-      let timeZone = moment()
-        .utcOffset(data.location.timezone / 60)
-        .format("z");
-      timezoneResult.innerHTML = `${timeZone} ${data.location.timezone}`;
-      ispResult.innerHTML = data.isp;
-      lat = data.location.lat;
-      lng = data.location.lng;
+      changeDOM(data);
       changeLocation(lat, lng);
     } catch (error) {
       console.error(error);
@@ -61,15 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
       });
       const data = await response.json();
-      ipResult.innerHTML = data.ip;
-      locationResult.innerHTML = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
-      let timeZone = moment()
-        .utcOffset(data.location.timezone / 60)
-        .format("z");
-      timezoneResult.innerHTML = `${timeZone} ${data.location.timezone}`;
-      ispResult.innerHTML = data.isp;
-      lat = data.location.lat;
-      lng = data.location.lng;
+      changeDOM(data);
       initializeMap(lat, lng);
     } catch (error) {
       console.error(error);
