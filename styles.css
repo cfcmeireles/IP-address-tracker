@@ -137,6 +137,12 @@ form input {
   background-repeat: repeat;
 }
 
+@media (orientation: landscape) {
+  .app-bg {
+    pointer-events: none;
+  }
+}
+
 @media only screen and (min-width: 400px) {
   .app-bg {
     content: url("/images/pattern-bg-desktop.png");
